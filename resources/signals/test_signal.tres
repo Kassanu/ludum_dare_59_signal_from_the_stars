@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://b8itvqhmx6lwd"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "test_signal"
+name = "Test Signal"
+map_position = Vector2(10, 10)
+message = "Test"

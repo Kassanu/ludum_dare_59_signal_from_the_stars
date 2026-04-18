@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://38o7jpknvhie"]
+
+[ext_resource type="Script" uid="uid://ns4i23cd3vy7" path="res://scripts/steps/decoded_message.gd" id="1_decoded_message"]
+
+[node name="DecodedMessage" type="Control" unique_id=1863565726]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_decoded_message")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=413508897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1953625250]
+layout_mode = 2
+text = "Signal Decoded!"
+
+[node name="MessageLabel" type="Label" parent="VBoxContainer" unique_id=1514149284]
+layout_mode = 2
+autowrap_mode = 3

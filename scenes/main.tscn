@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bydscdtd5eabq"]
+
+[ext_resource type="Script" uid="uid://d10k450sd3165" path="res://scripts/star_map.gd" id="1_star_map"]
+[ext_resource type="Script" uid="uid://bj0ilwted5pas" path="res://scripts/fog_of_war.gd" id="2_fog_of_war"]
+[ext_resource type="Script" path="res://scripts/log_entry.gd" id="3_log_entry"]
+
+[node name="Main" type="Node2D" unique_id=695934484]
+
+[node name="StarMap" type="Node2D" parent="." unique_id=1371045304]
+script = ExtResource("1_star_map")
+
+[node name="FogOfWar" type="Node2D" parent="StarMap" unique_id=200000001]
+script = ExtResource("2_fog_of_war")
+
+[node name="Camera2D" type="Camera2D" parent="StarMap" unique_id=927193473]
+
+[node name="SignalMarkers" type="Node2D" parent="StarMap" unique_id=640896607]
+
+[node name="SignalPanel" type="CanvasLayer" parent="." unique_id=1975212579]
+
+[node name="LogEntry" type="Control" parent="SignalPanel" unique_id=458210843]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3_log_entry")
+visible = false
+
+[node name="Panel" type="Panel" parent="SignalPanel/LogEntry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -220.0
+offset_right = 300.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SignalPanel/LogEntry/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Signal Name"
+
+[node name="CloseButton" type="Button" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "×"
+
+[node name="HSeparator" type="HSeparator" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StepContainer" type="Control" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 280)
