@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://ddr68b8kwhty7" path="res://scripts/tutorial_manager.gd" id="9_tutorial"]
 [ext_resource type="Texture2D" uid="uid://dqtfmw23m7dae" path="res://assets/star_dot.png" id="10_sdot"]
 [ext_resource type="Script" uid="uid://bybycri1gneok" path="res://scripts/editor_signal_overlay.gd" id="14_0ld40"]
-[ext_resource type="Script" path="res://scripts/hint_blink.gd" id="15_hblink"]
+[ext_resource type="Script" uid="uid://di4mfxhq1i0ww" path="res://scripts/hint_blink.gd" id="15_hblink"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sugp2"]
 
@@ -123,9 +123,9 @@ position = Vector2(-204, 293)
 texture = ExtResource("10_sdot")
 
 [node name="S1Hint" type="Sprite2D" parent="StarMap/Sprites" unique_id=599000001]
+modulate = Color(0.8, 0.9, 1, 0.2)
 position = Vector2(450, -200)
 scale = Vector2(0.35, 0.35)
-modulate = Color(0.8, 0.9, 1, 0.2)
 texture = ExtResource("10_sdot")
 script = ExtResource("15_hblink")
 
@@ -290,7 +290,7 @@ text = "Home"
 
 [node name="SoundButton" type="Button" parent="SignalPanel/BottomBar" unique_id=2095481199]
 layout_mode = 2
-text = "🔊"
+text = "Sound"
 
 [node name="TutorialUpgradeArrow" type="Control" parent="SignalPanel" unique_id=100000002]
 visible = false

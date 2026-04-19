@@ -53,19 +53,45 @@ var word_bank: Array[String] = ["ELPIS", "FIRE"]
 func _ready() -> void:
 	_load_signals()
 
+const _SIGNAL_RESOURCES: Array[String] = [
+	"res://resources/signals/test_signal.tres",
+	"res://resources/signals/story_s1.tres",
+	"res://resources/signals/story_s2a.tres",
+	"res://resources/signals/story_s2b.tres",
+	"res://resources/signals/story_s3.tres",
+	"res://resources/signals/story_s4.tres",
+	"res://resources/signals/story_s5.tres",
+	"res://resources/signals/story_s6.tres",
+	"res://resources/signals/flavor_accretion.tres",
+	"res://resources/signals/flavor_asteroid.tres",
+	"res://resources/signals/flavor_binary.tres",
+	"res://resources/signals/flavor_brokenhalo.tres",
+	"res://resources/signals/flavor_browndwarf.tres",
+	"res://resources/signals/flavor_coldvoid.tres",
+	"res://resources/signals/flavor_drift.tres",
+	"res://resources/signals/flavor_dyson.tres",
+	"res://resources/signals/flavor_gamma.tres",
+	"res://resources/signals/flavor_gas.tres",
+	"res://resources/signals/flavor_gravlens.tres",
+	"res://resources/signals/flavor_magnetic.tres",
+	"res://resources/signals/flavor_magnetar.tres",
+	"res://resources/signals/flavor_microwave.tres",
+	"res://resources/signals/flavor_neutron.tres",
+	"res://resources/signals/flavor_nursery.tres",
+	"res://resources/signals/flavor_pilgrim.tres",
+	"res://resources/signals/flavor_pulsar.tres",
+	"res://resources/signals/flavor_quasar.tres",
+	"res://resources/signals/flavor_supernova.tres",
+	"res://resources/signals/flavor_void2.tres",
+	"res://resources/signals/flavor_volcanic.tres",
+]
+
 func _load_signals() -> void:
-	var dir := DirAccess.open("res://resources/signals/")
-	if not dir:
-		return
-	dir.list_dir_begin()
-	var file := dir.get_next()
-	while file != "":
-		if file.ends_with(".tres"):
-			var data := load("res://resources/signals/" + file) as SignalData
-			if data:
-				data.generate_targets()
-				signals.append(data)
-		file = dir.get_next()
+	for path in _SIGNAL_RESOURCES:
+		var data := load(path) as SignalData
+		if data:
+			data.generate_targets()
+			signals.append(data)
 
 func get_telescope_range(map_radius: int) -> int:
 	var max_level := TELESCOPE_UPGRADE_COSTS.size()

@@ -20,7 +20,7 @@ const DIALOG_HEIGHT_MIN := 80
 var _state: State = State.WELCOME
 var _dialog_pages: Array[String] = []
 var _current_page: int = 0
-var _final_label := "Continue ▶"
+var _final_label := "Continue"
 var _tutorial_signal: SignalData = null
 
 var _blocker: Control
@@ -92,7 +92,7 @@ func _build_dialog_ui() -> void:
 	btn_row.add_child(skip_btn)
 
 	_continue_btn = Button.new()
-	_continue_btn.text = "Continue ▶"
+	_continue_btn.text = "Continue"
 	_continue_btn.custom_minimum_size = Vector2(140, 32)
 	_continue_btn.size_flags_horizontal = Control.SIZE_SHRINK_END
 	_continue_btn.pressed.connect(_on_continue_pressed)
@@ -100,7 +100,7 @@ func _build_dialog_ui() -> void:
 
 	_dialog_panel.hide()
 
-func _show_pages(pages: Array[String], final_label: String = "Continue ▶") -> void:
+func _show_pages(pages: Array[String], final_label: String = "Continue") -> void:
 	_dialog_pages = pages
 	_current_page = 0
 	_final_label = final_label
@@ -113,7 +113,7 @@ func _update_dialog_page() -> void:
 	if _current_page >= _dialog_pages.size() - 1:
 		_continue_btn.text = _final_label
 	else:
-		_continue_btn.text = "Next ▶"
+		_continue_btn.text = "Next"
 	call_deferred("_fit_dialog")
 
 func _fit_dialog() -> void:
@@ -176,12 +176,12 @@ func _start_state(new_state: State) -> void:
 			_upgrade_arrow.visible = true
 			_show_pages([
 				"Some signals reward you with [b]credits[/b] you can spend on upgrades.\n\nUpgrades expand your telescope range, improve your filter, and unlock more powerful signal modulation tools. Check them out!",
-			], "Got it! ▶")
+			], "Next")
 		State.FINISH:
 			_upgrade_arrow.visible = false
 			_show_pages([
 				"You're ready!\n\nScan the stars to find more signals from beyond. Good luck, Signal Analyst!",
-			], "Let's go! ▶")
+			], "Next")
 		State.COMPLETE:
 			GameManager.tutorial_active = false
 
