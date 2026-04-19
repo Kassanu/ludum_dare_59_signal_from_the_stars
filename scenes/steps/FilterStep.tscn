@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cykjknyu0yyky"]
 
 [ext_resource type="Script" uid="uid://diyhh77bvaser" path="res://scripts/steps/filter_step.gd" id="1_filter_step"]
+[ext_resource type="Script" uid="uid://dt3q1xvd75s0p" path="res://scripts/circular_knob.gd" id="2_circular_knob"]
 
 [node name="FilterStep" type="Control" unique_id=1140999232]
 layout_mode = 3
@@ -18,12 +19,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=2114688342]
 layout_mode = 2
-text = "Filter Step
-Tune the filters to isolate the signal."
+text = "Tune the filters to isolate the signal."
 
-[node name="CompleteButton" type="Button" parent="VBoxContainer" unique_id=58951769]
+[node name="KnobsRow" type="HBoxContainer" parent="VBoxContainer" unique_id=100000001]
 layout_mode = 2
-text = "Apply Filter"
+size_flags_vertical = 3
+
+[node name="KnobA" type="Control" parent="VBoxContainer/KnobsRow" unique_id=100000003]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_circular_knob")
+
+[node name="KnobB" type="Control" parent="VBoxContainer/KnobsRow" unique_id=100000006]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_circular_knob")
+
+[node name="SliderRow" type="HBoxContainer" parent="VBoxContainer" unique_id=100000007]
+layout_mode = 2
+
+[node name="FilterSlider" type="HSlider" parent="VBoxContainer/SliderRow" unique_id=100000009]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.01

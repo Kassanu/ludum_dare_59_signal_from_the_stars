@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_8xb4i")
 id = "test_signal"
-name = "Test Signal"
-map_position = Vector2(10, 10)
-message = "Test"
+name = "Lunar Echo"
+map_position = Vector2(-33, -168)
+message = "NOVA detected."
+money_reward = 100
+decode_template = Array[String](["ア", " detected."])

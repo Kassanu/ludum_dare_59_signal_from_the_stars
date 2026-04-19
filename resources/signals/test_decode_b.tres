@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://bil7l1epda6ue"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "test_decode_b"
+name = "Signal Theta-2"
+map_position = Vector2(160, 90)
+message = "KEPLER-9 SYSTEM — UNKNOWN BODY COUNT"
+reward = 100
+is_filtered = true
+is_modulated = true
+randomize_targets = false
+decode_template = Array[String](["ウ", "SYSTEM — UNKNOWN BODY COUNT"])

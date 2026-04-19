@@ -2,31 +2,75 @@
 
 [ext_resource type="Script" uid="uid://d10k450sd3165" path="res://scripts/star_map.gd" id="1_star_map"]
 [ext_resource type="Script" uid="uid://bj0ilwted5pas" path="res://scripts/fog_of_war.gd" id="2_fog_of_war"]
-[ext_resource type="Script" path="res://scripts/log_entry.gd" id="3_log_entry"]
+[ext_resource type="Script" uid="uid://boerbvbjvy0oi" path="res://scripts/log_entry.gd" id="3_log_entry"]
+[ext_resource type="Texture2D" uid="uid://7viuqvec68kd" path="res://assets/earth.png" id="4_choun"]
+[ext_resource type="Script" uid="uid://cbi3bv4e0yyrb" path="res://scripts/waveform_display.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://7dfk6f2pjvy8" path="res://scripts/codebook_panel.gd" id="5_codebook"]
+[ext_resource type="Texture2D" uid="uid://bub5373rfa78m" path="res://assets/moon.png" id="5_ya4ey"]
+[ext_resource type="Script" uid="uid://d35go3x5k6a2k" path="res://scripts/upgrade_panel.gd" id="6_upgrade"]
+[ext_resource type="Texture2D" uid="uid://h5jydn5syslx" path="res://assets/red_circle.png" id="7_eb6dy"]
+[ext_resource type="Script" uid="uid://bvahimow5tjki" path="res://scripts/main.gd" id="7_main"]
+[ext_resource type="Script" uid="uid://575adur67m3" path="res://scripts/star_field.gd" id="8_star_field"]
+[ext_resource type="Script" uid="uid://ddr68b8kwhty7" path="res://scripts/tutorial_manager.gd" id="9_tutorial"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sugp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
+font_size = 64
+font_color = Color(1, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=695934484]
+script = ExtResource("7_main")
 
 [node name="StarMap" type="Node2D" parent="." unique_id=1371045304]
 script = ExtResource("1_star_map")
 
-[node name="FogOfWar" type="Node2D" parent="StarMap" unique_id=200000001]
-script = ExtResource("2_fog_of_war")
+[node name="Sprites" type="Node2D" parent="StarMap" unique_id=791228089]
+
+[node name="Earth" type="Sprite2D" parent="StarMap/Sprites" unique_id=985286017]
+texture = ExtResource("4_choun")
+
+[node name="Moon" type="Sprite2D" parent="StarMap/Sprites" unique_id=732639459]
+position = Vector2(-33, -168)
+texture = ExtResource("5_ya4ey")
+
+[node name="StarField" type="Node2D" parent="StarMap" unique_id=894761830]
+script = ExtResource("8_star_field")
 
 [node name="Camera2D" type="Camera2D" parent="StarMap" unique_id=927193473]
 
 [node name="SignalMarkers" type="Node2D" parent="StarMap" unique_id=640896607]
 
+[node name="TutorialScanArrow" type="Node2D" parent="StarMap" unique_id=100000001]
+visible = false
+position = Vector2(10, 10)
+
+[node name="RedCircle" type="Sprite2D" parent="StarMap/TutorialScanArrow" unique_id=1692929803]
+position = Vector2(-43, -179)
+texture = ExtResource("7_eb6dy")
+
+[node name="FogOfWar" type="Node2D" parent="StarMap" unique_id=200000001]
+script = ExtResource("2_fog_of_war")
+
+[node name="NoisePlayer" type="AudioStreamPlayer" parent="StarMap" unique_id=676529164]
+stream = SubResource("AudioStreamGenerator_sugp2")
+volume_db = 5.0
+
+[node name="TonePlayer" type="AudioStreamPlayer" parent="StarMap" unique_id=852809506]
+
 [node name="SignalPanel" type="CanvasLayer" parent="." unique_id=1975212579]
 
 [node name="LogEntry" type="Control" parent="SignalPanel" unique_id=458210843]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_log_entry")
-visible = false
 
-[node name="Panel" type="Panel" parent="SignalPanel/LogEntry"]
+[node name="Panel" type="Panel" parent="SignalPanel/LogEntry" unique_id=2001506350]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,35 +84,136 @@ offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SignalPanel/LogEntry/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="SignalPanel/LogEntry/Panel" unique_id=86506168]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer" unique_id=489957984]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer" unique_id=340428718]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TitleLabel" type="Label" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1629840877]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Signal Name"
 
-[node name="CloseButton" type="Button" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CloseButton" type="Button" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2128413547]
 layout_mode = 2
 text = "×"
 
-[node name="HSeparator" type="HSeparator" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer" unique_id=972171511]
 layout_mode = 2
 
-[node name="StepContainer" type="Control" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer"]
+[node name="WaveformDisplay" type="Control" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer" unique_id=1022542796]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+script = ExtResource("4_jyhfs")
+
+[node name="StepContainer" type="Control" parent="SignalPanel/LogEntry/Panel/MarginContainer/VBoxContainer" unique_id=1880461621]
+custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 size_flags_vertical = 3
-custom_minimum_size = Vector2(0, 280)
+
+[node name="CodebookPanel" type="Control" parent="SignalPanel" unique_id=6217707]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_codebook")
+
+[node name="UpgradePanel" type="Control" parent="SignalPanel" unique_id=158698941]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_upgrade")
+
+[node name="SoundPopup" type="Panel" parent="SignalPanel" unique_id=1867104594]
+visible = false
+offset_left = 556.0
+offset_top = 548.0
+offset_right = 756.0
+offset_bottom = 592.0
+
+[node name="HSlider" type="HSlider" parent="SignalPanel/SoundPopup" unique_id=310957781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+
+[node name="BottomBar" type="HBoxContainer" parent="SignalPanel" unique_id=575695544]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -48.0
+offset_right = 110.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CodebookButton" type="Button" parent="SignalPanel/BottomBar" unique_id=378437678]
+layout_mode = 2
+text = "Codebook"
+
+[node name="UpgradeButton" type="Button" parent="SignalPanel/BottomBar" unique_id=43479411]
+layout_mode = 2
+text = "Upgrades"
+
+[node name="SoundButton" type="Button" parent="SignalPanel/BottomBar" unique_id=2095481199]
+layout_mode = 2
+text = "🔊"
+
+[node name="TutorialUpgradeArrow" type="Control" parent="SignalPanel" unique_id=100000002]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -128.0
+offset_right = 40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="SignalPanel/TutorialUpgradeArrow" unique_id=575056746]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 90.0
+text = "⬇"
+label_settings = SubResource("LabelSettings_eb6dy")
+
+[node name="TutorialManager" type="CanvasLayer" parent="." unique_id=100000003]
+layer = 10
+script = ExtResource("9_tutorial")

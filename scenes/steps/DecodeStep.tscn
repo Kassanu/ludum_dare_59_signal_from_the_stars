@@ -19,11 +19,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=411316110]
+[node name="MessageFlow" type="HFlowContainer" parent="VBoxContainer" unique_id=239649103]
 layout_mode = 2
-text = "Decode Step
-Decode the signal pattern to reveal the message."
 
-[node name="CompleteButton" type="Button" parent="VBoxContainer" unique_id=1925040798]
+[node name="WordBankLabel" type="Label" parent="VBoxContainer" unique_id=884153852]
 layout_mode = 2
-text = "Decode Signal"
+text = "Word Bank:"
+
+[node name="WordBankContainer" type="GridContainer" parent="VBoxContainer" unique_id=1298049618]
+layout_mode = 2
+columns = 4
+
+[node name="TransmitButton" type="Button" parent="VBoxContainer" unique_id=647773486]
+layout_mode = 2
+disabled = true
+text = "Transmit"

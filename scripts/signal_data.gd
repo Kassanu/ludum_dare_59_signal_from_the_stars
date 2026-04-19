@@ -6,6 +6,7 @@ extends Resource
 @export var name: String = ""
 @export var map_position: Vector2 = Vector2.ZERO
 @export var message: String = ""
+@export var money_reward: int = 0
 
 # --- Progress ---
 @export var is_found: bool = false
@@ -31,8 +32,13 @@ extends Resource
 @export var mod_uses_phase: bool = false
 @export var mod_phase_target: float = 0.0
 
-# --- Decode Step (stubbed) ---
-@export var decode_data: Dictionary = {}
+# --- Decode Step ---
+@export var decode_template: Array[String] = []
+@export var decode_word_rewards: Array[String] = []
+
+# --- Waveform Display ---
+@export_range(1.0, 5.0) var visual_frequency: float = 2.0
+@export var wave_seed: int = 0
 
 # --- Randomization ---
 @export var randomize_targets: bool = true
@@ -40,6 +46,7 @@ extends Resource
 func generate_targets() -> void:
 	if not randomize_targets:
 		return
+	wave_seed = randi()
 	filter_knob_a_target = randf_range(0.0, 360.0)
 	filter_knob_b_target = randf_range(0.0, 360.0)
 	if filter_has_slider:
@@ -49,4 +56,4 @@ func generate_targets() -> void:
 	if mod_uses_frequency:
 		mod_frequency_target = randf_range(0.0, 1.0)
 	if mod_uses_phase:
-		mod_phase_target = randf_range(0.0, 360.0)
+		mod_phase_target = randf_range(0.0, 1.0)

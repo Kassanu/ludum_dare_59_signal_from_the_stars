@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://test_decode_c"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "test_decode_c"
+name = "Signal Theta-3"
+map_position = Vector2(260, 50)
+message = "KEPLER-9 SYSTEM — SECTOR SECTOR-7 — CONTACT ESTABLISHED"
+reward = 200
+is_filtered = true
+is_modulated = true
+randomize_targets = false
+decode_template = Array[String](["ウ", "SYSTEM — SECTOR", "イ", "— CONTACT ESTABLISHED"])

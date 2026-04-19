@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://cp5j07vjcr166"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_eh4ld"]
+
+[resource]
+script = ExtResource("1_eh4ld")
+id = "test_signal2"
+name = "Lunar Echo"
+map_position = Vector2(20, -168)
+message = "NOVA detected."
+money_reward = 100

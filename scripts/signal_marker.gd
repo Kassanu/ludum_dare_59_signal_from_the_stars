@@ -20,7 +20,12 @@ func _ready() -> void:
 	_area.input_event.connect(_on_area_input_event)
 	_area.mouse_entered.connect(_tooltip.show)
 	_area.mouse_exited.connect(_tooltip.hide)
+	GameManager.signal_decoded.connect(_on_signal_decoded)
 	_refresh()
+
+func _on_signal_decoded(data: SignalData) -> void:
+	if data == signal_data:
+		_refresh()
 
 func _refresh() -> void:
 	if not is_node_ready() or signal_data == null:

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://bn28o5v12muyo"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "test_decode_a"
+name = "Signal Theta-1"
+map_position = Vector2(60, 40)
+message = "Faint signal. Multiple origin candidates noted."
+reward = 50
+is_filtered = true
+is_modulated = true
+randomize_targets = false
+decode_word_rewards = Array[String](["KEPLER-9", "NOVA", "SECTOR-7", "DEEP-FIELD"])
