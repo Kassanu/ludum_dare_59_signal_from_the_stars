@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "story_s5"
+name = "The Echo"
+map_position = Vector2(-2000, -800)
+message = "Their last transmission in transit. They had arrived near their destination. North — far north — a signal pulses like a heartbeat. That is where they made their final broadcast."
+money_reward = 130
+mod_uses_amplitude = true
+mod_uses_frequency = true
+mod_uses_phase = true
+decode_template = Array[String](["ス", "CALLS", "FROM", "THE", "ケ", "ア", "IS", "NOT", "AN", "セ"])
+decode_word_rewards = Array[String](["BIRTH"])
+visual_frequency = 4.0

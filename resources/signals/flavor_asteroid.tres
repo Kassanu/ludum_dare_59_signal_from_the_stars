@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_asteroid"
+name = "Asteroid Field"
+map_position = Vector2(-450, -300)
+message = "High-density debris field. No parent body detected. Whatever it orbited is gone."
+money_reward = 60
+is_modulated = true
+visual_frequency = 2.8

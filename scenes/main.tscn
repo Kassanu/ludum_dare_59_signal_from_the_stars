@@ -6,12 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://7viuqvec68kd" path="res://assets/earth.png" id="4_choun"]
 [ext_resource type="Script" uid="uid://cbi3bv4e0yyrb" path="res://scripts/waveform_display.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://7dfk6f2pjvy8" path="res://scripts/codebook_panel.gd" id="5_codebook"]
+[ext_resource type="Texture2D" uid="uid://b213i2ih4hlvc" path="res://assets/volcanic_planet.png" id="5_trceg"]
 [ext_resource type="Texture2D" uid="uid://bub5373rfa78m" path="res://assets/moon.png" id="5_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bwa1d14wghbpc" path="res://assets/gas_cloud.png" id="6_a8y0u"]
 [ext_resource type="Script" uid="uid://d35go3x5k6a2k" path="res://scripts/upgrade_panel.gd" id="6_upgrade"]
 [ext_resource type="Texture2D" uid="uid://h5jydn5syslx" path="res://assets/red_circle.png" id="7_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://ciuw7qchflgkm" path="res://assets/binary_stars.png" id="7_jkv2x"]
 [ext_resource type="Script" uid="uid://bvahimow5tjki" path="res://scripts/main.gd" id="7_main"]
+[ext_resource type="Texture2D" uid="uid://dol4v7bvqyqow" path="res://assets/supernova_remnant.png" id="8_jbj1t"]
 [ext_resource type="Script" uid="uid://575adur67m3" path="res://scripts/star_field.gd" id="8_star_field"]
+[ext_resource type="Texture2D" uid="uid://uopvhj4yhv7h" path="res://assets/pulsar.png" id="9_muem4"]
 [ext_resource type="Script" uid="uid://ddr68b8kwhty7" path="res://scripts/tutorial_manager.gd" id="9_tutorial"]
+[ext_resource type="Texture2D" uid="uid://dqtfmw23m7dae" path="res://assets/star_dot.png" id="10_sdot"]
+[ext_resource type="Script" uid="uid://bybycri1gneok" path="res://scripts/editor_signal_overlay.gd" id="14_0ld40"]
+[ext_resource type="Script" path="res://scripts/hint_blink.gd" id="15_hblink"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sugp2"]
 
@@ -33,6 +41,93 @@ texture = ExtResource("4_choun")
 [node name="Moon" type="Sprite2D" parent="StarMap/Sprites" unique_id=732639459]
 position = Vector2(-33, -168)
 texture = ExtResource("5_ya4ey")
+
+[node name="VolcanicPlanet" type="Sprite2D" parent="StarMap/Sprites" unique_id=328942412]
+position = Vector2(-200, 800)
+texture = ExtResource("5_trceg")
+
+[node name="GasCloud" type="Sprite2D" parent="StarMap/Sprites" unique_id=501140404]
+position = Vector2(-1200, -200)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_a8y0u")
+
+[node name="BinaryStars" type="Sprite2D" parent="StarMap/Sprites" unique_id=1092534568]
+position = Vector2(900, 600)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_jkv2x")
+
+[node name="SupernovaRemnant" type="Sprite2D" parent="StarMap/Sprites" unique_id=1880357651]
+position = Vector2(1600, -300)
+texture = ExtResource("8_jbj1t")
+
+[node name="Pulsar" type="Sprite2D" parent="StarMap/Sprites" unique_id=488278581]
+position = Vector2(200, -2300)
+texture = ExtResource("9_muem4")
+
+[node name="PilgrimConstellation" type="Node2D" parent="StarMap/Sprites" unique_id=311000001]
+position = Vector2(-1660, 1282)
+
+[node name="Star1" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000002]
+texture = ExtResource("10_sdot")
+
+[node name="Star2" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000003]
+position = Vector2(-42, -80)
+texture = ExtResource("10_sdot")
+
+[node name="Star12" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=1104829905]
+position = Vector2(-168, -68)
+texture = ExtResource("10_sdot")
+
+[node name="Star3" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000004]
+position = Vector2(103, -100)
+texture = ExtResource("10_sdot")
+
+[node name="Star4" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000005]
+position = Vector2(138, 24)
+texture = ExtResource("10_sdot")
+
+[node name="Star13" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=1608639326]
+position = Vector2(233, 86)
+texture = ExtResource("10_sdot")
+
+[node name="Star14" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=420722880]
+position = Vector2(313, 131)
+texture = ExtResource("10_sdot")
+
+[node name="Star5" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000006]
+position = Vector2(-109, 72)
+texture = ExtResource("10_sdot")
+
+[node name="Star6" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000007]
+position = Vector2(-238, 94)
+texture = ExtResource("10_sdot")
+
+[node name="Star8" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=1996081928]
+position = Vector2(-286, 140)
+texture = ExtResource("10_sdot")
+
+[node name="Star11" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=1401368576]
+position = Vector2(-324, 208)
+texture = ExtResource("10_sdot")
+
+[node name="Star7" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=311000008]
+position = Vector2(-118, 146)
+texture = ExtResource("10_sdot")
+
+[node name="Star9" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=1426025231]
+position = Vector2(-149, 218)
+texture = ExtResource("10_sdot")
+
+[node name="Star10" type="Sprite2D" parent="StarMap/Sprites/PilgrimConstellation" unique_id=984282391]
+position = Vector2(-204, 293)
+texture = ExtResource("10_sdot")
+
+[node name="S1Hint" type="Sprite2D" parent="StarMap/Sprites" unique_id=599000001]
+position = Vector2(450, -200)
+scale = Vector2(0.35, 0.35)
+modulate = Color(0.8, 0.9, 1, 0.2)
+texture = ExtResource("10_sdot")
+script = ExtResource("15_hblink")
 
 [node name="StarField" type="Node2D" parent="StarMap" unique_id=894761830]
 script = ExtResource("8_star_field")
@@ -57,6 +152,9 @@ stream = SubResource("AudioStreamGenerator_sugp2")
 volume_db = 5.0
 
 [node name="TonePlayer" type="AudioStreamPlayer" parent="StarMap" unique_id=852809506]
+
+[node name="Node2D" type="Node2D" parent="StarMap" unique_id=1058499085]
+script = ExtResource("14_0ld40")
 
 [node name="SignalPanel" type="CanvasLayer" parent="." unique_id=1975212579]
 

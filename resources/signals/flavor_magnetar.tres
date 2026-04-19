@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_magnetar"
+name = "Magnetar Flare"
+map_position = Vector2(700, -900)
+message = "SGR-class burst. Field strength: 10^15 gauss. In one-fifth of a second it released more energy than our sun will produce in 100,000 years."
+money_reward = 85
+is_modulated = true
+visual_frequency = 4.8

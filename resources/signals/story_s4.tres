@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://biho8gmo6nri0"]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+[ext_resource type="Texture2D" uid="uid://bmbafhhu1uokh" path="res://assets/signal_trail_map.png" id="1_ttiib"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "story_s4"
+name = "The Trail"
+map_position = Vector2(-600, 1700)
+message = "A deliberate waypoint — they wanted to be followed. Embedded in this transmission is a map fragment. Study it carefully. The marked location lies far to the west."
+money_reward = 200
+filter_has_slider = true
+mod_uses_amplitude = true
+mod_uses_frequency = true
+decode_template = Array[String](["IN", "OUR", "シ", "WE", "LEFT", "THIS", "FOR", "THOSE", "WHO", "SEEK", "サ"])
+decode_word_rewards = Array[String](["VOICE", "END"])
+decode_image = ExtResource("1_ttiib")
+visual_frequency = 2.2

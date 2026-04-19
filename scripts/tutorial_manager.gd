@@ -170,7 +170,7 @@ func _start_state(new_state: State) -> void:
 			pass
 		State.REWARD_DIALOG:
 			_show_pages([
-				"Signal decoded!\n\nYou've discovered the symbol [b]ア = NOVA[/b]. Known symbols are saved in your [b]Codebook[/b] and will be auto-filled the next time they appear in a signal.",
+				"Signal decoded!\n\nUnknown symbols have been logged in your [b]Codebook[/b]. Whenever you see the same markers again, they'll auto-fill — no need to re-assign.\n\nKeep scanning. There are more transmissions out there.",
 			])
 		State.UPGRADE_PROMPT:
 			_upgrade_arrow.visible = true

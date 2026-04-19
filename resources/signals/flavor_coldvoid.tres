@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_coldvoid"
+name = "Cold Dark Region"
+map_position = Vector2(-800, 1100)
+message = "3-parsec radius with zero stellar objects. No thermal output. No explanation. The silence here is different from the silence elsewhere."
+money_reward = 75
+is_modulated = true
+visual_frequency = 1.0

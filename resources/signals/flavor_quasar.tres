@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_quasar"
+name = "Quasar Echo"
+map_position = Vector2(-2200, 900)
+message = "Signal traveling 8 billion light-years. It left before Earth existed. By the time we receive it, the source has been cold for eons."
+money_reward = 140
+is_modulated = true
+visual_frequency = 4.2

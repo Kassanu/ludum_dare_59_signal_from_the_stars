@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_binary"
+name = "Binary Stars"
+map_position = Vector2(900, 600)
+message = "Two G-class stars locked in mutual orbit. Period: 47 years. No planetary bodies detected. They've been dancing like this for two billion years."
+money_reward = 75
+is_modulated = true
+visual_frequency = 2.2

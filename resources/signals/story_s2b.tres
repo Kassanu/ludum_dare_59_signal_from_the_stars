@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "story_s2b"
+name = "The Calling"
+map_position = Vector2(-1100, -400)
+message = "This signal predates the collapse. Centuries before they fled, something called to them from deep in the silence. They already knew where to go. The second chain continues east, near the remains of a shattered star."
+money_reward = 110
+mod_uses_amplitude = true
+decode_template = Array[String](["FROM", "THE", "キ", "ア", "CALLED", "ACROSS", "THE", "エ", "WE", "FOLLOWED"])
+decode_word_rewards = Array[String](["BEYOND", "ECHO"])
+visual_frequency = 1.8

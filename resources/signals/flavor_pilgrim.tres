@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_pilgrim"
+name = "The Pilgrim"
+map_position = Vector2(-1660.0, 1282.0)
+message = "Navigation marker. Ancient cartographers charted these stars as the Pilgrim — a figure mid-stride, arm forever reaching into the dark."
+money_reward = 95
+randomize_targets = true
+visual_frequency = 2.5

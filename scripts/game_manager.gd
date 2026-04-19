@@ -21,22 +21,34 @@ var modulator_level: int = 0
 var player_money: int = 0
 var tutorial_active: bool = true
 
-const TELESCOPE_UPGRADE_COSTS: Array[int] = [0, 150, 350, 700]
-const FILTER_UPGRADE_COSTS: Array[int] = [0, 200]
-const MODULATOR_UPGRADE_COSTS: Array[int] = [100, 250, 500]
+const TELESCOPE_UPGRADE_COSTS: Array[int] = [0, 100, 275, 550]
+const FILTER_UPGRADE_COSTS: Array[int] = [0, 150]
+const MODULATOR_UPGRADE_COSTS: Array[int] = [75, 200, 400]
 
 const FIND_RADIUS := 96.0
-const PROXIMITY_RADIUS := FIND_RADIUS * 3
+const PROXIMITY_RADIUS := FIND_RADIUS * 4
 
 const SYMBOL_ANSWERS: Dictionary = {
-	"ア": "NOVA",
-	"イ": "SECTOR-7",
-	"ウ": "KEPLER-9",
+	"ア": "ELPIS",
+	"イ": "HOME",
+	"ウ": "FIRE",
+	"エ": "SILENCE",
+	"オ": "JOURNEY",
+	"カ": "DEEP",
+	"キ": "DARK",
+	"ク": "HOLLOW",
+	"ケ": "BEYOND",
+	"コ": "ECHO",
+	"サ": "REFUGE",
+	"シ": "WAKE",
+	"ス": "VOICE",
+	"セ": "END",
+	"ソ": "BIRTH",
 }
 
 var signals: Array[SignalData] = []
 var codebook: Dictionary = {}
-var word_bank: Array[String] = ["NOVA"]
+var word_bank: Array[String] = ["ELPIS", "FIRE"]
 
 func _ready() -> void:
 	_load_signals()

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "story_s3"
+name = "Convergence"
+map_position = Vector2(1500, -500)
+message = "Both fleets rendezvous. ELPIS is not myth. The Pilgrim leads the way home."
+money_reward = 160
+mod_uses_amplitude = true
+mod_uses_frequency = true
+decode_template = Array[String](["IN", "THE", "カ", "AN", "コ", "OF", "ア", "NOT", "ク", "BUT", "ケ"])
+decode_word_rewards = Array[String](["REFUGE", "WAKE"])
+visual_frequency = 3.0

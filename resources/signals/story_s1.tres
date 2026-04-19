@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "story_s1"
+name = "First Voice"
+map_position = Vector2(450, -200)
+message = "Their home star collapsed. They fled before it was over. Two signal chains detected: one to the south, near the burning world — another to the west, deep in the great cloud. They split their fleet."
+money_reward = 80
+decode_template = Array[String](["FROM", "イ", "WE", "FLED", "THE", "ウ", "ア", "LIES", "IN", "THE", "エ"])
+decode_word_rewards = Array[String](["JOURNEY", "DARK"])
+visual_frequency = 2.0

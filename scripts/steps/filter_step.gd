@@ -22,7 +22,15 @@ func _ready() -> void:
 	_knob_a.value_changed.connect(func(_v): _on_values_changed())
 	_knob_b.value_changed.connect(func(_v): _on_values_changed())
 	_filter_slider.value_changed.connect(func(_v): _on_values_changed())
+	_show_upgrade_hints()
 	_emit_current()
+
+func _show_upgrade_hints() -> void:
+	if signal_data.filter_has_slider and GameManager.filter_level < 2:
+		var label := Label.new()
+		label.text = "Upgrade filter to unlock additional controls"
+		label.add_theme_color_override("font_color", Color(1.0, 0.75, 0.2))
+		$VBoxContainer.add_child(label)
 
 func _setup_audio() -> void:
 	_audio_player = AudioStreamPlayer.new()

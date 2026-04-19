@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_neutron"
+name = "Neutron Star"
+map_position = Vector2(-1700, 500)
+message = "Ultra-dense remnant. Diameter: 20km. Mass: 1.4 solar masses. A teaspoon of its material would weigh a billion tons. It does not care."
+money_reward = 110
+is_modulated = true
+visual_frequency = 2.6

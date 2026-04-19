@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_drift"
+name = "Stellar Drift"
+map_position = Vector2(480, 350)
+message = "Star moving at 220 km/s relative to local group. Escaped its parent cluster. Now it travels alone — indefinitely."
+money_reward = 50
+is_modulated = true
+visual_frequency = 1.6

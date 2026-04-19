@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_gravlens"
+name = "Gravitational Lens"
+map_position = Vector2(-1600, -1400)
+message = "Light path bent 1.4 arcseconds by intervening mass. Whatever lies behind it is distorted, duplicated, unrecognizable. We see it wrong but we see it."
+money_reward = 115
+is_modulated = true
+visual_frequency = 2.4

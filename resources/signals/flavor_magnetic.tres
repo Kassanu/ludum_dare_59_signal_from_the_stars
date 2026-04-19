@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_magnetic"
+name = "Magnetic Storm"
+map_position = Vector2(100, 480)
+message = "Intense electromagnetic flux across a 12-AU radius. Likely coronal mass ejection from a nearby G-class star. Hazardous to unshielded equipment."
+money_reward = 55
+is_modulated = true
+visual_frequency = 4.5

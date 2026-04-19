@@ -22,6 +22,8 @@ func _build_ui() -> void:
 		img.texture = signal_data.decode_image
 		img.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 		img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		img.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		img.custom_minimum_size = Vector2(0, 180)
 		vbox.add_child(img)
 
 	var message := Label.new()

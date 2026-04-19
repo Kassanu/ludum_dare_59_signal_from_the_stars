@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_pulsar"
+name = "Pulsar Sweep"
+map_position = Vector2(-400, 100)
+message = "Rotation period: 33ms. Highly regular. Natural lighthouse of the void — non-intelligent origin confirmed."
+money_reward = 50
+is_modulated = true
+visual_frequency = 3.5

@@ -26,8 +26,25 @@ func _ready() -> void:
 	_amp_slider.value_changed.connect(func(_v): _on_values_changed())
 	_freq_slider.value_changed.connect(func(_v): _on_values_changed())
 	_phase_slider.value_changed.connect(func(_v): _on_values_changed())
+	_show_upgrade_hints()
 	_emit_current()
 	_check_lock()
+
+func _show_upgrade_hints() -> void:
+	var missing: Array[String] = []
+	if signal_data.mod_uses_amplitude and GameManager.modulator_level < 1:
+		missing.append("Modulator Lvl 1 (amplitude)")
+	if signal_data.mod_uses_frequency and GameManager.modulator_level < 2:
+		missing.append("Modulator Lvl 2 (frequency)")
+	if signal_data.mod_uses_phase and GameManager.modulator_level < 3:
+		missing.append("Modulator Lvl 3 (phase)")
+	if missing.is_empty():
+		return
+	var label := Label.new()
+	label.text = "Upgrade needed: " + ", ".join(missing)
+	label.add_theme_color_override("font_color", Color(1.0, 0.75, 0.2))
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	$VBoxContainer.add_child(label)
 
 func _setup_audio() -> void:
 	_audio_player = AudioStreamPlayer.new()
