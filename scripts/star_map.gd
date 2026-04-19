@@ -21,8 +21,8 @@ const _hint_blink_texture := preload("res://assets/star_dot.png")
 
 var _dragging := false
 var _drag_start := Vector2.ZERO
-var _cam_start := Vector2.ZERO
 var _input_enabled := true
+var _cam_edge := 0
 
 var _noise_playback: AudioStreamGeneratorPlayback
 var _tone_playback: AudioStreamGeneratorPlayback
@@ -43,11 +43,11 @@ class ScanPing:
 var _scan_pings: Array = []
 
 func _ready() -> void:
-	var edge := int((MAP_RADIUS + 0.5) * TILE_SIZE)  # camera limits include the half-tile border
-	_camera.limit_left = -edge
-	_camera.limit_right = edge
-	_camera.limit_top = -edge
-	_camera.limit_bottom = edge
+	_cam_edge = int((MAP_RADIUS + 0.5) * TILE_SIZE)  # camera limits include the half-tile border
+	_camera.limit_left = -_cam_edge
+	_camera.limit_right = _cam_edge
+	_camera.limit_top = -_cam_edge
+	_camera.limit_bottom = _cam_edge
 
 	GameManager.signal_loaded.connect(_on_signal_loaded)
 	GameManager.signal_unloaded.connect(_on_signal_unloaded)
@@ -129,14 +129,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.pressed:
 			_dragging = true
 			_drag_start = event.position
-			_cam_start = _camera.position
 		else:
 			if _dragging and event.position.distance_to(_drag_start) < CLICK_MAX_DRIFT:
 				_handle_click()
 			_dragging = false
 
 	elif event is InputEventMouseMotion and _dragging:
-		_camera.position = _cam_start - (event.position - _drag_start) / _camera.zoom
+		_camera.position -= event.relative / _camera.zoom
+		var half := get_viewport_rect().size / 2.0 / _camera.zoom
+		_camera.position.x = clamp(_camera.position.x, -_cam_edge + half.x, _cam_edge - half.x)
+		_camera.position.y = clamp(_camera.position.y, -_cam_edge + half.y, _cam_edge - half.y)
 
 func _handle_click() -> void:
 	var world_pos := get_global_mouse_position()
