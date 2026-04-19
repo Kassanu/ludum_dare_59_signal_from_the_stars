@@ -154,7 +154,7 @@ func _start_state(new_state: State) -> void:
 		State.WELCOME:
 			_show_pages([
 				"Welcome to the Deep Space Signal Detection Unit!\n\nStrange signals have been detected from beyond the stars. Your mission: find and decode them.",
-				"Clicking on the star map scans for signals in that area.\n\nThere's something near the [b]Moon[/b] — try clicking it now!",
+				"Clicking on the star map scans for signals in that area.\n\nThere's something on the [b]Moon[/b] — try clicking it now!",
 			])
 		State.SCAN_PROMPT:
 			_scan_arrow.visible = true
@@ -173,7 +173,7 @@ func _start_state(new_state: State) -> void:
 			pass
 		State.REWARD_DIALOG:
 			_show_pages([
-				"Signal decoded!\n\nUnknown symbols have been logged in your [b]Codebook[/b]. Whenever you see the same markers again, they'll auto-fill — no need to re-assign.\n\nKeep scanning. There are more transmissions out there.",
+				"Signal decoded!\n\nUnknown symbols have been logged in your [b]Codebook[/b]. Refer back to it whenever you encounter familiar markers — it'll help you decode future transmissions faster.\n\nKeep scanning. There are more transmissions out there.",
 			])
 		State.UPGRADE_PROMPT:
 			_upgrade_arrow.visible = true
