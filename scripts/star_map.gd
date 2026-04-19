@@ -133,7 +133,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _handle_click() -> void:
 	var world_pos := get_global_mouse_position()
 	var tile := (world_pos / TILE_SIZE).round()
-	if max(abs(tile.x), abs(tile.y)) > GameManager.telescope_level:
+	if max(abs(tile.x), abs(tile.y)) > GameManager.get_telescope_range(MAP_RADIUS):
 		return
 	var found := GameManager.try_load_nearest_signal(world_pos)
 	if found:
@@ -174,6 +174,9 @@ func _spawn_marker(data: SignalData) -> void:
 	marker.signal_data = data
 	marker.clicked.connect(GameManager.load_signal)
 	_markers.add_child(marker)
+
+func center_camera() -> void:
+	_camera.position = Vector2.ZERO
 
 func _set_blocked(blocked: bool) -> void:
 	_input_enabled = !blocked

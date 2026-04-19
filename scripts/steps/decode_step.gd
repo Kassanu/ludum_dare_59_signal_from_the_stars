@@ -56,7 +56,10 @@ func _build_ui() -> void:
 func _rebuild_word_bank() -> void:
 	for child in _word_bank_container.get_children():
 		child.queue_free()
+	var used := GameManager.codebook.values()
 	for word in GameManager.word_bank:
+		if word in used:
+			continue
 		var btn := Button.new()
 		btn.text = word
 		btn.pressed.connect(_on_word_selected.bind(word))

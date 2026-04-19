@@ -55,6 +55,12 @@ func _load_signals() -> void:
 				signals.append(data)
 		file = dir.get_next()
 
+func get_telescope_range(map_radius: int) -> int:
+	var max_level := TELESCOPE_UPGRADE_COSTS.size()
+	if telescope_level >= max_level:
+		return map_radius
+	return max(1, telescope_level * map_radius / max_level)
+
 func get_nearest_unscanned_distance(world_pos: Vector2) -> float:
 	var nearest := INF
 	for sig in signals:

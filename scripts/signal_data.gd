@@ -35,6 +35,7 @@ extends Resource
 # --- Decode Step ---
 @export var decode_template: Array[String] = []
 @export var decode_word_rewards: Array[String] = []
+@export var decode_image: Texture2D
 
 # --- Waveform Display ---
 @export_range(1.0, 5.0) var visual_frequency: float = 2.0

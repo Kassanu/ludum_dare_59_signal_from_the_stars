@@ -5,13 +5,16 @@ extends Node2D
 @onready var _codebook_btn: Button = $SignalPanel/BottomBar/CodebookButton
 @onready var _upgrade_btn: Button = $SignalPanel/BottomBar/UpgradeButton
 @onready var _sound_btn: Button = $SignalPanel/BottomBar/SoundButton
+@onready var _home_btn: Button = $SignalPanel/BottomBar/HomeButton
 @onready var _sound_popup = $SignalPanel/SoundPopup
 @onready var _volume_slider: HSlider = $SignalPanel/SoundPopup/HSlider
+@onready var _star_map = $StarMap
 
 func _ready() -> void:
 	_codebook_btn.pressed.connect(_codebook_panel.open)
 	_upgrade_btn.pressed.connect(_upgrade_panel.open)
 	_sound_btn.pressed.connect(_on_sound_btn_pressed)
+	_home_btn.pressed.connect(_star_map.center_camera)
 	_volume_slider.min_value = 0.0
 	_volume_slider.max_value = 1.0
 	_volume_slider.step = 0.01

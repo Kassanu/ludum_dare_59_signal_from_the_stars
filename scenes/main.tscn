@@ -171,9 +171,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -110.0
+offset_left = -150.0
 offset_top = -48.0
-offset_right = 110.0
+offset_right = 150.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -185,6 +185,10 @@ text = "Codebook"
 [node name="UpgradeButton" type="Button" parent="SignalPanel/BottomBar" unique_id=43479411]
 layout_mode = 2
 text = "Upgrades"
+
+[node name="HomeButton" type="Button" parent="SignalPanel/BottomBar" unique_id=300000001]
+layout_mode = 2
+text = "Home"
 
 [node name="SoundButton" type="Button" parent="SignalPanel/BottomBar" unique_id=2095481199]
 layout_mode = 2

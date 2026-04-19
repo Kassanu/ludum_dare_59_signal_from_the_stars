@@ -17,7 +17,7 @@ func _draw() -> void:
 
 	for tx in range(-map_radius, map_radius + 1):
 		for ty in range(-map_radius, map_radius + 1):
-			if max(abs(tx), abs(ty)) > GameManager.telescope_level:
+			if max(abs(tx), abs(ty)) > GameManager.get_telescope_range(map_radius):
 				draw_rect(
 					Rect2(tx * tile_size - half, ty * tile_size - half, tile_size, tile_size),
 					FOG_COLOR
