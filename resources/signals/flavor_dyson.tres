@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://be3w5tyggyhdu"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,5 +9,3 @@ name = "Dyson Fragment"
 map_position = Vector2(2000, -1800)
 message = "Structure too geometrically regular for natural formation. Spectral analysis inconclusive. Could be artifact. Could be debris. Could be something we don't have a word for yet."
 money_reward = 150
-is_modulated = true
-visual_frequency = 2.0

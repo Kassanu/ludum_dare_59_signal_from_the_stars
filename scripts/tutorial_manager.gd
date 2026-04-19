@@ -10,6 +10,7 @@ enum State {
 	WAITING_DECODE,
 	REWARD_DIALOG,
 	UPGRADE_PROMPT,
+	WAITING_TELESCOPE,
 	FINISH,
 	COMPLETE,
 }
@@ -42,6 +43,7 @@ func _ready() -> void:
 	GameManager.signal_loaded.connect(_on_signal_loaded)
 	GameManager.signal_unloaded.connect(_on_signal_unloaded)
 	GameManager.decode_step_started.connect(_on_decode_step_started)
+	GameManager.telescope_upgraded.connect(_on_telescope_upgraded)
 
 	_start_state(State.WELCOME)
 
@@ -142,7 +144,7 @@ func _on_dialog_finished() -> void:
 		State.REWARD_DIALOG:
 			_start_state(State.UPGRADE_PROMPT)
 		State.UPGRADE_PROMPT:
-			_start_state(State.FINISH)
+			_start_state(State.WAITING_TELESCOPE)
 		State.FINISH:
 			_start_state(State.COMPLETE)
 
@@ -176,13 +178,15 @@ func _start_state(new_state: State) -> void:
 		State.UPGRADE_PROMPT:
 			_upgrade_arrow.visible = true
 			_show_pages([
-				"Some signals reward you with [b]credits[/b] you can spend on upgrades.\n\nUpgrades expand your telescope range, improve your filter, and unlock more powerful signal modulation tools.",
-			], "Next")
+				"That signal rewarded you with [b]50 credits[/b].\n\nOpen the [b]Upgrades[/b] panel and buy the [b]Telescope[/b] upgrade — it'll expand your scan range so you can reach more distant signals.",
+			], "Got it")
+		State.WAITING_TELESCOPE:
+			_upgrade_arrow.visible = true
 		State.FINISH:
 			_upgrade_arrow.visible = false
 			_show_pages([
-				"You're ready!\n\nScan the stars to find more signals from beyond. Good luck, Signal Analyst!",
-			], "Next")
+				"Telescope upgraded!\n\nYou can now scan a wider region of space. Keep scanning — there are more transmissions out there. Good luck, Signal Analyst!",
+			], "Let's go")
 		State.COMPLETE:
 			GameManager.tutorial_active = false
 
@@ -208,3 +212,7 @@ func _on_decode_step_started() -> void:
 func _on_signal_unloaded() -> void:
 	if _state == State.WAITING_DECODE and _tutorial_signal != null and _tutorial_signal.is_decoded:
 		_start_state(State.REWARD_DIALOG)
+
+func _on_telescope_upgraded(_level: int) -> void:
+	if _state == State.WAITING_TELESCOPE:
+		_start_state(State.FINISH)

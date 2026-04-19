@@ -45,21 +45,30 @@ func _build_ui() -> void:
 
 	vbox.add_child(HSeparator.new())
 
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	vbox.add_child(scroll)
+
+	var scroll_vbox := VBoxContainer.new()
+	scroll_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(scroll_vbox)
+
 	var sym_header := Label.new()
 	sym_header.text = "Known Symbols"
-	vbox.add_child(sym_header)
+	scroll_vbox.add_child(sym_header)
 
 	_symbol_list = VBoxContainer.new()
-	vbox.add_child(_symbol_list)
+	scroll_vbox.add_child(_symbol_list)
 
-	vbox.add_child(HSeparator.new())
+	scroll_vbox.add_child(HSeparator.new())
 
 	var word_header := Label.new()
 	word_header.text = "Word Bank"
-	vbox.add_child(word_header)
+	scroll_vbox.add_child(word_header)
 
 	_word_list = VBoxContainer.new()
-	vbox.add_child(_word_list)
+	scroll_vbox.add_child(_word_list)
 
 func open() -> void:
 	_refresh_symbols()

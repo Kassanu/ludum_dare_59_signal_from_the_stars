@@ -25,5 +25,5 @@ func _draw() -> void:
 
 	for n in range(-map_radius, map_radius + 2):
 		var pos := n * tile_size - half
-		draw_line(Vector2(pos, -extent), Vector2(pos, extent), GRID_COLOR, 1.0)
-		draw_line(Vector2(-extent, pos), Vector2(extent, pos), GRID_COLOR, 1.0)
+		draw_line(Vector2(pos, -extent), Vector2(pos, extent), GRID_COLOR, 1.5)
+		draw_line(Vector2(-extent, pos), Vector2(extent, pos), GRID_COLOR, 1.5)

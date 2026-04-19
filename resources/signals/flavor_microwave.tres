@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://pk24d7q1x4sx"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,5 +9,3 @@ name = "Microwave Anomaly"
 map_position = Vector2(-200, -450)
 message = "CMB deviation detected — 0.003K above background. Origin unclear. Could be instrumental noise. Could be something else."
 money_reward = 55
-is_modulated = true
-visual_frequency = 2.0

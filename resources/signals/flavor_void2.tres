@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://c25oltqcm5j44"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,5 +9,4 @@ name = "Void Anomaly"
 map_position = Vector2(1400, 1500)
 message = "Gravitational measurement inconsistency. Local mass does not match observed curvature. Something is here that we cannot see."
 money_reward = 110
-is_modulated = true
 visual_frequency = 1.5

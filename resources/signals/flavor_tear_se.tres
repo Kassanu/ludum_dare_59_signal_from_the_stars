@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_tear_se"
+name = "Tear II"
+map_position = Vector2(2250, 2000)
+message = "The region shows evidence of mass absorption — stars, dust, entire systems missing. Not gone. Consumed. Something here feeds on the distance between things."
+money_reward = 120
+filter_has_slider = false
+mod_uses_amplitude = false
+mod_uses_frequency = false
+mod_uses_phase = false
+decode_template = Array[String](["ア", "AND", "ウ", "AND", "イ", "FED", "IT"])
+decode_word_rewards = Array[String](["HUNGER"])
+visual_frequency = 2.8

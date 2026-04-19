@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://5oba4em87m06"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,6 +9,4 @@ name = "Solar Graveyard"
 map_position = Vector2(1550, 950)
 message = "Seven white dwarfs within a parsec of each other — the remnants of a stellar nursery that burned itself out."
 money_reward = 100
-is_modulated = true
-randomize_targets = true
 visual_frequency = 3.1

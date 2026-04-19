@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://bbe1dbqov15jr"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,5 +9,4 @@ name = "Volcanic Planet"
 map_position = Vector2(-200, 800)
 message = "Surface temperature: 1,400K. Continuous eruption across 70% of terrain. No atmosphere capable of supporting biology."
 money_reward = 80
-is_modulated = true
 visual_frequency = 3.2

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_tear_sw"
+name = "Tear V"
+map_position = Vector2(-2150, 2200)
+message = "We transmitted standard greetings. Forty-seven languages. Mathematical sequences. After six hours of silence, one signal returned: our own. Unchanged. Unanswered. Already known."
+money_reward = 120
+filter_has_slider = false
+mod_uses_amplitude = false
+mod_uses_frequency = false
+mod_uses_phase = false
+decode_template = Array[String](["WHEN", "ア", "IS", "ケ", "IT", "WILL", "STILL", "BE", "HERE"])
+decode_word_rewards = Array[String](["WAITING"])
+visual_frequency = 2.5

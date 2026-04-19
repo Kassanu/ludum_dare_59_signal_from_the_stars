@@ -15,13 +15,13 @@ signal panel_closed
 signal signal_decoded(data: SignalData)
 
 var _active_signal: SignalData = null
-var telescope_level: int = 1
+var telescope_level: int = 0
 var filter_level: int = 1
 var modulator_level: int = 0
 var player_money: int = 0
 var tutorial_active: bool = true
 
-const TELESCOPE_UPGRADE_COSTS: Array[int] = [0, 100, 275, 550]
+const TELESCOPE_UPGRADE_COSTS: Array[int] = [50, 100, 275, 550]
 const FILTER_UPGRADE_COSTS: Array[int] = [0, 150]
 const MODULATOR_UPGRADE_COSTS: Array[int] = [75, 200, 400]
 
@@ -44,6 +44,11 @@ const SYMBOL_ANSWERS: Dictionary = {
 	"ス": "VOICE",
 	"セ": "END",
 	"ソ": "BIRTH",
+	"タ": "SEEN",
+	"チ": "HUNGER",
+	"ツ": "VAST",
+	"テ": "AWAKE",
+	"ト": "WAITING",
 }
 
 var signals: Array[SignalData] = []
@@ -101,6 +106,11 @@ const _SIGNAL_RESOURCES: Array[String] = [
 	"res://resources/signals/flavor_tidal_wake.tres",
 	"res://resources/signals/flavor_solar_graveyard.tres",
 	"res://resources/signals/flavor_drift_current.tres",
+	"res://resources/signals/flavor_tear_ne.tres",
+	"res://resources/signals/flavor_tear_se.tres",
+	"res://resources/signals/flavor_tear_s.tres",
+	"res://resources/signals/flavor_tear_w.tres",
+	"res://resources/signals/flavor_tear_sw.tres",
 ]
 
 func _load_signals() -> void:

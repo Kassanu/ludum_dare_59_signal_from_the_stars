@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_tear_w"
+name = "Tear IV"
+map_position = Vector2(-2450, 300)
+message = "There are no drift patterns, no orbital mechanics that explain its position. It is not moving because it does not need to. It has chosen to be here. It has always chosen."
+money_reward = 120
+filter_has_slider = false
+mod_uses_amplitude = false
+mod_uses_frequency = false
+mod_uses_phase = false
+decode_template = Array[String](["エ", "DOES", "NOT", "REACH", "IT"])
+decode_word_rewards = Array[String](["AWAKE"])
+visual_frequency = 3.1

@@ -16,6 +16,8 @@ const TONE_VOLUME_DB := -10.0
 @onready var _tone_player: AudioStreamPlayer = $TonePlayer
 
 const _marker_scene := preload("res://scenes/SignalMarker.tscn")
+const _hint_blink_script := preload("res://scripts/hint_blink.gd")
+const _hint_blink_texture := preload("res://assets/star_dot.png")
 
 var _dragging := false
 var _drag_start := Vector2.ZERO
@@ -55,6 +57,8 @@ func _ready() -> void:
 	for sig in GameManager.signals:
 		if sig.is_found:
 			_spawn_marker(sig)
+		elif not sig.id.begins_with("story_") and sig.id != "test_signal":
+			_spawn_hint_blink(sig)
 
 	_setup_audio()
 
@@ -117,7 +121,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _input_enabled:
 		return
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		_camera.zoom = Vector2(1.0, 1.0)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		_camera.zoom = Vector2(0.75, 0.75)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			_dragging = true
 			_drag_start = event.position
@@ -128,7 +136,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_dragging = false
 
 	elif event is InputEventMouseMotion and _dragging:
-		_camera.position = _cam_start - (event.position - _drag_start)
+		_camera.position = _cam_start - (event.position - _drag_start) / _camera.zoom
 
 func _handle_click() -> void:
 	var world_pos := get_global_mouse_position()
@@ -167,6 +175,20 @@ func _draw() -> void:
 			var center_angle :float= ping.direction.angle()
 			var arc_color := Color(0.4, 0.8, 1.0, arc_alpha)
 			draw_arc(ping.world_pos, radius, center_angle - SCAN_ARC_HALF_ANGLE, center_angle + SCAN_ARC_HALF_ANGLE, 16, arc_color, 2.5)
+
+func _spawn_hint_blink(data: SignalData) -> Sprite2D:
+	var sprite := Sprite2D.new()
+	sprite.set_script(_hint_blink_script)
+	sprite.texture = _hint_blink_texture
+	sprite.position = data.map_position
+	sprite.scale = Vector2(0.75, 0.75)
+	sprite.name = "HintBlink_" + data.id
+	_markers.add_child(sprite)
+	GameManager.signal_found.connect(func(found: SignalData) -> void:
+		if found == data and is_instance_valid(sprite):
+			sprite.queue_free()
+	)
+	return sprite
 
 func _spawn_marker(data: SignalData) -> void:
 	var marker: SignalMarker = _marker_scene.instantiate()

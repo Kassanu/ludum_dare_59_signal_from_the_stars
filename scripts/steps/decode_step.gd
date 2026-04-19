@@ -32,19 +32,12 @@ func _auto_complete() -> void:
 func _build_ui() -> void:
 	for part in signal_data.decode_template:
 		if _is_symbol(part):
-			if GameManager.codebook.has(part):
-				var lbl := Label.new()
-				lbl.text = GameManager.codebook[part]
-				lbl.modulate = Color(0.6, 1.0, 0.6)
-				_message_flow.add_child(lbl)
-				_slot_assignments[part] = GameManager.codebook[part]
-			else:
-				var btn := Button.new()
-				btn.text = part
-				btn.pressed.connect(_on_slot_pressed.bind(part))
-				_message_flow.add_child(btn)
-				_slot_buttons[part] = btn
-				_slot_assignments[part] = ""
+			var btn := Button.new()
+			btn.text = part
+			btn.pressed.connect(_on_slot_pressed.bind(part))
+			_message_flow.add_child(btn)
+			_slot_buttons[part] = btn
+			_slot_assignments[part] = ""
 		else:
 			var lbl := Label.new()
 			lbl.text = part
@@ -56,7 +49,7 @@ func _build_ui() -> void:
 func _rebuild_word_bank() -> void:
 	for child in _word_bank_container.get_children():
 		child.queue_free()
-	var used := GameManager.codebook.values()
+	var used := _slot_assignments.values()
 	for word in GameManager.word_bank:
 		if word in used:
 			continue
@@ -92,23 +85,45 @@ func _check_all_slots_known() -> void:
 	_transmit_btn.disabled = false
 
 func _on_transmit() -> void:
-	var all_correct := true
+	var total_slots := _slot_buttons.size()
+	var correct_count := 0
 	for symbol in _slot_buttons:
 		var assigned: String = _slot_assignments[symbol]
-		if GameManager.SYMBOL_ANSWERS.get(symbol, assigned) != assigned:
-			_slot_buttons[symbol].modulate = Color(1.0, 0.4, 0.4)
-			all_correct = false
-		else:
-			_slot_buttons[symbol].modulate = Color(0.6, 1.0, 0.6)
-	if not all_correct:
+		if GameManager.SYMBOL_ANSWERS.get(symbol, assigned) == assigned:
+			correct_count += 1
+
+	var threshold: float
+	if total_slots <= 2:
+		threshold = 1.0
+	elif total_slots <= 4:
+		threshold = 0.75
+	else:
+		threshold = 0.5
+
+	if float(correct_count) / float(total_slots) < threshold:
+		_flash_failure()
 		return
+
 	for symbol in _slot_buttons:
-		GameManager.record_assignment(symbol, _slot_assignments[symbol])
+		var assigned: String = _slot_assignments[symbol]
+		if GameManager.SYMBOL_ANSWERS.get(symbol, assigned) == assigned:
+			GameManager.record_assignment(symbol, assigned)
 	GameManager.add_word_rewards(signal_data.decode_word_rewards)
 	GameManager.receive_money(signal_data.money_reward)
 	signal_data.is_decoded = true
 	GameManager.signal_decoded.emit(signal_data)
 	step_completed.emit()
+
+func _flash_failure() -> void:
+	for sym in _slot_buttons:
+		_slot_buttons[sym].modulate = Color(1.0, 0.4, 0.4)
+	await get_tree().create_timer(0.6).timeout
+	for sym in _slot_buttons:
+		_slot_buttons[sym].modulate = Color.WHITE
+		_slot_buttons[sym].text = sym
+		_slot_assignments[sym] = ""
+	_transmit_btn.disabled = true
+	_rebuild_word_bank()
 
 func _is_symbol(s: String) -> bool:
 	if s.is_empty():

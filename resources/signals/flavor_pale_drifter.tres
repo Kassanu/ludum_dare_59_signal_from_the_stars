@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://clj6d80281qkn"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -9,6 +9,4 @@ name = "Pale Drifter"
 map_position = Vector2(850, -1650)
 message = "A rogue planet — no star, no orbit, just drifting. Surface temperature: 30 Kelvin. Whatever atmosphere it once had is long gone. It wanders without destination."
 money_reward = 105
-is_modulated = true
-randomize_targets = true
 visual_frequency = 1.9

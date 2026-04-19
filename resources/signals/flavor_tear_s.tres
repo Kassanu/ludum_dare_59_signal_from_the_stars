@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_tear_s"
+name = "Tear III"
+map_position = Vector2(200, 2450)
+message = "Our instruments cannot resolve the boundary of this presence. We mapped four AU. Then forty. Then four hundred. It does not have edges. Only weight."
+money_reward = 120
+filter_has_slider = false
+mod_uses_amplitude = false
+mod_uses_frequency = false
+mod_uses_phase = false
+decode_template = Array[String](["IT", "WAS", "HERE", "BEFORE", "ウ", "BEFORE", "エ"])
+decode_word_rewards = Array[String](["VAST"])
+visual_frequency = 1.8

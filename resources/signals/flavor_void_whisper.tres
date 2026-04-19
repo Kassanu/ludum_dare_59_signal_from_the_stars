@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalData" format=3]
+[gd_resource type="Resource" script_class="SignalData" format=3 uid="uid://bs233s75wvuup"]
 
 [ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
 
@@ -13,5 +13,5 @@ filter_has_slider = true
 mod_uses_amplitude = true
 mod_uses_frequency = true
 mod_uses_phase = true
-decode_template = Array[String](["DO", "NOT", "シ", "DO", "NOT", "オ", "ケ"])
+decode_template = Array[String](["DO", "NOT", "シ", "DO", "NOT", "オ", "ケ", "IT", "IS", "テ", "IT", "HAS", "タ", "YOU"])
 visual_frequency = 4.4
