@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_debris_alpha"
+name = "Wreckage Field"
+map_position = Vector2(-2034, -2180)
+message = "Hull plating. Drive cores. Personal effects still broadcasting their emergency beacons. Fourteen ships, by our count. All heading the same direction before they stopped."
+money_reward = 170
+filter_has_slider = true
+mod_uses_amplitude = true
+mod_uses_frequency = true
+mod_uses_phase = true
+decode_template = Array[String](["THEY", "CAME", "FOR", "ア", "FOUND", "THE", "ク"])
+decode_word_rewards = Array[String](["HOLLOW"])
+visual_frequency = 3.6

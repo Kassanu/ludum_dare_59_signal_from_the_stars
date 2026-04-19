@@ -23,7 +23,7 @@ var _current_page: int = 0
 var _final_label := "Continue"
 var _tutorial_signal: SignalData = null
 
-var _blocker: Control
+var _blocker: ColorRect
 var _dialog_panel: Panel
 var _dialog_text: RichTextLabel
 var _continue_btn: Button
@@ -46,8 +46,9 @@ func _ready() -> void:
 	_start_state(State.WELCOME)
 
 func _build_dialog_ui() -> void:
-	_blocker = Control.new()
+	_blocker = ColorRect.new()
 	_blocker.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_blocker.color = Color(0, 0, 0, 0.75)
 	_blocker.mouse_filter = Control.MOUSE_FILTER_STOP
 	_blocker.hide()
 	add_child(_blocker)
@@ -175,7 +176,7 @@ func _start_state(new_state: State) -> void:
 		State.UPGRADE_PROMPT:
 			_upgrade_arrow.visible = true
 			_show_pages([
-				"Some signals reward you with [b]credits[/b] you can spend on upgrades.\n\nUpgrades expand your telescope range, improve your filter, and unlock more powerful signal modulation tools. Check them out!",
+				"Some signals reward you with [b]credits[/b] you can spend on upgrades.\n\nUpgrades expand your telescope range, improve your filter, and unlock more powerful signal modulation tools.",
 			], "Next")
 		State.FINISH:
 			_upgrade_arrow.visible = false

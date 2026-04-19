@@ -18,8 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://uopvhj4yhv7h" path="res://assets/pulsar.png" id="9_muem4"]
 [ext_resource type="Script" uid="uid://ddr68b8kwhty7" path="res://scripts/tutorial_manager.gd" id="9_tutorial"]
 [ext_resource type="Texture2D" uid="uid://dqtfmw23m7dae" path="res://assets/star_dot.png" id="10_sdot"]
+[ext_resource type="Texture2D" uid="uid://y3rtkj76sw7d" path="res://assets/maelstrom.png" id="12_jscy8"]
+[ext_resource type="Texture2D" uid="uid://byy4emgkwj3yo" path="res://assets/debris_field.png" id="13_pm3ni"]
 [ext_resource type="Script" uid="uid://bybycri1gneok" path="res://scripts/editor_signal_overlay.gd" id="14_0ld40"]
+[ext_resource type="Texture2D" uid="uid://dn8wr8ag7anv7" path="res://assets/void_eye.png" id="14_y6deb"]
 [ext_resource type="Script" uid="uid://di4mfxhq1i0ww" path="res://scripts/hint_blink.gd" id="15_hblink"]
+[ext_resource type="Script" uid="uid://cu2ncbt2nrt7o" path="res://scripts/editor_telescope_ranges.gd" id="16_yc10j"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sugp2"]
 
@@ -122,12 +126,67 @@ texture = ExtResource("10_sdot")
 position = Vector2(-204, 293)
 texture = ExtResource("10_sdot")
 
+[node name="SwordConstellation" type="Node2D" parent="StarMap/Sprites" unique_id=651314172]
+position = Vector2(-5, -1159)
+
+[node name="Star1" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=934960461]
+texture = ExtResource("10_sdot")
+
+[node name="Star2" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1774001548]
+position = Vector2(-49, 5)
+texture = ExtResource("10_sdot")
+
+[node name="Star3" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1757722720]
+position = Vector2(22, -41)
+texture = ExtResource("10_sdot")
+
+[node name="Star4" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1186216203]
+position = Vector2(27, 63)
+texture = ExtResource("10_sdot")
+
+[node name="Star5" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1913878117]
+position = Vector2(-57, -79)
+texture = ExtResource("10_sdot")
+
+[node name="Star6" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1286213784]
+position = Vector2(-104, -152)
+texture = ExtResource("10_sdot")
+
+[node name="Star7" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1987656901]
+position = Vector2(-179, -251)
+texture = ExtResource("10_sdot")
+
+[node name="Star8" type="Sprite2D" parent="StarMap/Sprites/SwordConstellation" unique_id=1012076643]
+position = Vector2(-254, -345)
+texture = ExtResource("10_sdot")
+
 [node name="S1Hint" type="Sprite2D" parent="StarMap/Sprites" unique_id=599000001]
 modulate = Color(0.8, 0.9, 1, 0.2)
 position = Vector2(450, -200)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("10_sdot")
 script = ExtResource("15_hblink")
+alpha_base = 0.7
+alpha_amplitude = 0.2
+pulse_color = Color(1, 0, 0.22745098, 1)
+color_mix = 0.8
+
+[node name="Maelstrom" type="Sprite2D" parent="StarMap/Sprites" unique_id=1427138344]
+position = Vector2(-2524, -2525)
+scale = Vector2(2, 2)
+texture = ExtResource("12_jscy8")
+
+[node name="DebrisField" type="Sprite2D" parent="StarMap/Sprites" unique_id=1832466194]
+position = Vector2(-2035, -2182)
+texture = ExtResource("13_pm3ni")
+
+[node name="DebrisField2" type="Sprite2D" parent="StarMap/Sprites" unique_id=518501538]
+position = Vector2(-2041, -1954)
+texture = ExtResource("13_pm3ni")
+
+[node name="VoidEyes" type="Sprite2D" parent="StarMap/Sprites" unique_id=771476794]
+position = Vector2(-2281, -2393)
+texture = ExtResource("14_y6deb")
 
 [node name="StarField" type="Node2D" parent="StarMap" unique_id=894761830]
 script = ExtResource("8_star_field")
@@ -153,8 +212,11 @@ volume_db = 5.0
 
 [node name="TonePlayer" type="AudioStreamPlayer" parent="StarMap" unique_id=852809506]
 
-[node name="Node2D" type="Node2D" parent="StarMap" unique_id=1058499085]
+[node name="Editor - Signals" type="Node2D" parent="StarMap" unique_id=1058499085]
 script = ExtResource("14_0ld40")
+
+[node name="Editor - Telescope" type="Node2D" parent="StarMap" unique_id=825245455]
+script = ExtResource("16_yc10j")
 
 [node name="SignalPanel" type="CanvasLayer" parent="." unique_id=1975212579]
 
@@ -243,7 +305,6 @@ grow_vertical = 2
 script = ExtResource("6_upgrade")
 
 [node name="SoundPopup" type="Panel" parent="SignalPanel" unique_id=1867104594]
-visible = false
 offset_left = 556.0
 offset_top = 548.0
 offset_right = 756.0
@@ -309,10 +370,34 @@ grow_vertical = 0
 
 [node name="Label" type="Label" parent="SignalPanel/TutorialUpgradeArrow" unique_id=575056746]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 2.0
-offset_right = 88.0
-offset_bottom = 90.0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 56.0
+offset_bottom = 84.0
+text = "⬇"
+label_settings = SubResource("LabelSettings_eb6dy")
+
+[node name="TutorialCodebookArrow" type="Control" parent="SignalPanel" unique_id=1784241468]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -128.0
+offset_right = 40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="SignalPanel/TutorialCodebookArrow" unique_id=1012579223]
+layout_mode = 0
+offset_left = -86.0
+offset_top = -4.0
+offset_right = -32.0
+offset_bottom = 84.0
 text = "⬇"
 label_settings = SubResource("LabelSettings_eb6dy")
 

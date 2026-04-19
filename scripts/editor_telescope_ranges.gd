@@ -31,7 +31,7 @@ func _draw() -> void:
 		var color: Color = RANGE_COLORS[level]
 		var size := (r * 2 + 1) * TILE_SIZE
 		var top_left := Vector2(-r * TILE_SIZE - half, -r * TILE_SIZE - half)
-		draw_rect(Rect2(top_left, Vector2(size, size)), color, false, 2.0)
+		draw_rect(Rect2(top_left, Vector2(size, size)), color, false, 4.0)
 		var label := "L%d (r=%d)" % [level, r]
 		draw_string(font, top_left + Vector2(4, -4), label,
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 18, color)

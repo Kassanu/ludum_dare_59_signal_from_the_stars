@@ -84,6 +84,23 @@ const _SIGNAL_RESOURCES: Array[String] = [
 	"res://resources/signals/flavor_supernova.tres",
 	"res://resources/signals/flavor_void2.tres",
 	"res://resources/signals/flavor_volcanic.tres",
+	"res://resources/signals/flavor_maelstrom.tres",
+	"res://resources/signals/flavor_debris_alpha.tres",
+	"res://resources/signals/flavor_debris_beta.tres",
+	"res://resources/signals/flavor_hollow_eye.tres",
+	"res://resources/signals/flavor_void_whisper.tres",
+	"res://resources/signals/flavor_sword.tres",
+	"res://resources/signals/flavor_frost_veil.tres",
+	"res://resources/signals/flavor_comet_train.tres",
+	"res://resources/signals/flavor_pale_drifter.tres",
+	"res://resources/signals/flavor_iron_curtain.tres",
+	"res://resources/signals/flavor_echo_burst.tres",
+	"res://resources/signals/flavor_reliquary.tres",
+	"res://resources/signals/flavor_amber_cloud.tres",
+	"res://resources/signals/flavor_stone_garden.tres",
+	"res://resources/signals/flavor_tidal_wake.tres",
+	"res://resources/signals/flavor_solar_graveyard.tres",
+	"res://resources/signals/flavor_drift_current.tres",
 ]
 
 func _load_signals() -> void:

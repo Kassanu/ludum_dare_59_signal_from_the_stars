@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_maelstrom"
+name = "The Maelstrom"
+map_position = Vector2(-2525, -2525)
+message = "Not static. Not interference. Something is generating this signal deliberately — cycling, layering, evolving. At its center: nothing. A structured nothing. It knows we're listening."
+money_reward = 220
+filter_has_slider = true
+mod_uses_amplitude = true
+mod_uses_frequency = true
+mod_uses_phase = true
+decode_template = Array[String](["NOT", "A", "ソ", "NOT", "AN", "セ", "ク", "ケ", "カ", "キ", "イ"])
+decode_word_rewards = Array[String](["HOLLOW", "BEYOND"])
+visual_frequency = 4.8

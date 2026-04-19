@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_hollow_eye"
+name = "The Hollow Eye"
+map_position = Vector2(-2284, -2388)
+message = "It repeats. A phrase with no sender, no receiver. Just the signal, folding over itself endlessly — as if something is trying to remember what language feels like."
+money_reward = 195
+filter_has_slider = true
+mod_uses_amplitude = true
+mod_uses_frequency = true
+mod_uses_phase = true
+decode_template = Array[String](["IT", "ス", "WITHOUT", "ス", "IT", "コ", "WITHOUT", "コ"])
+decode_word_rewards = Array[String](["ECHO"])
+visual_frequency = 5.0

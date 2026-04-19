@@ -3,7 +3,7 @@ extends Control
 signal step_completed
 signal modulation_changed(amplitude: float, frequency: float, phase: float)
 
-const LOCK_TOLERANCE := 0.05
+const LOCK_TOLERANCE := 0.10
 const SOLVED_FREQUENCY := 880.0
 
 var signal_data: SignalData

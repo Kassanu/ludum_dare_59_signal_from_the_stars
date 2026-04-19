@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_debris_beta"
+name = "Silent Graveyard"
+map_position = Vector2(-2038.0, -1953)
+message = "The wreckage drifts in perfect rings — too perfect. Arranged, not scattered. Whatever passed through here left a pattern. Perhaps a warning. Perhaps a display."
+money_reward = 160
+filter_has_slider = true
+mod_uses_amplitude = true
+mod_uses_frequency = true
+mod_uses_phase = true
+decode_template = Array[String](["エ", "IS", "ALL", "THAT", "REMAINS"])
+visual_frequency = 4.1

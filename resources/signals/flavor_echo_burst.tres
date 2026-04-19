@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SignalData" format=3]
+
+[ext_resource type="Script" uid="uid://bpsrs7xwq37wi" path="res://scripts/signal_data.gd" id="1_8xb4i"]
+
+[resource]
+script = ExtResource("1_8xb4i")
+id = "flavor_echo_burst"
+name = "Echo Burst"
+map_position = Vector2(1650, -1400)
+message = "A fast radio burst source — millisecond flashes, perfectly repeating. No known natural process produces a pattern this precise."
+money_reward = 110
+is_modulated = true
+randomize_targets = true
+visual_frequency = 4.5
