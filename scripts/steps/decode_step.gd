@@ -86,28 +86,51 @@ func _check_all_slots_known() -> void:
 
 func _on_transmit() -> void:
 	var total_slots := _slot_buttons.size()
-	var correct_count := 0
+	var correct_symbols: Array[String] = []
+	var wrong_symbols: Array[String] = []
 	for symbol in _slot_buttons:
 		var assigned: String = _slot_assignments[symbol]
 		if GameManager.SYMBOL_ANSWERS.get(symbol, assigned) == assigned:
-			correct_count += 1
+			correct_symbols.append(symbol)
+		else:
+			wrong_symbols.append(symbol)
 
-	var threshold: float
+	# 1-2 slots: all or nothing, no partial locking
 	if total_slots <= 2:
-		threshold = 1.0
-	elif total_slots <= 4:
-		threshold = 0.75
-	else:
-		threshold = 0.5
+		if wrong_symbols.is_empty():
+			_complete_decode()
+		else:
+			_flash_failure()
+		return
 
-	if float(correct_count) / float(total_slots) < threshold:
+	# 3+ slots: if everything wrong just flash and reset
+	if correct_symbols.is_empty():
 		_flash_failure()
 		return
 
-	for symbol in _slot_buttons:
-		var assigned: String = _slot_assignments[symbol]
-		if GameManager.SYMBOL_ANSWERS.get(symbol, assigned) == assigned:
-			GameManager.record_assignment(symbol, assigned)
+	# Lock in the correct slots
+	for symbol in correct_symbols:
+		GameManager.record_assignment(symbol, _slot_assignments[symbol])
+		_slot_buttons[symbol].disabled = true
+		_slot_buttons[symbol].modulate = Color(0.6, 1.0, 0.6)
+		_slot_buttons.erase(symbol)
+
+	if wrong_symbols.is_empty():
+		_complete_decode()
+		return
+
+	# Flash wrong ones red then reset them
+	for symbol in wrong_symbols:
+		_slot_buttons[symbol].modulate = Color(1.0, 0.4, 0.4)
+	await get_tree().create_timer(0.6).timeout
+	for symbol in wrong_symbols:
+		_slot_buttons[symbol].modulate = Color.WHITE
+		_slot_buttons[symbol].text = symbol
+		_slot_assignments[symbol] = ""
+	_transmit_btn.disabled = true
+	_rebuild_word_bank()
+
+func _complete_decode() -> void:
 	GameManager.add_word_rewards(signal_data.decode_word_rewards)
 	GameManager.receive_money(signal_data.money_reward)
 	signal_data.is_decoded = true
