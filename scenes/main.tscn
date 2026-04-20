@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://di4mfxhq1i0ww" path="res://scripts/hint_blink.gd" id="15_hblink"]
 [ext_resource type="Texture2D" uid="uid://c0b075p7hegke" path="res://assets/eye.png" id="15_og1vs"]
 [ext_resource type="Script" uid="uid://cu2ncbt2nrt7o" path="res://scripts/editor_telescope_ranges.gd" id="16_yc10j"]
+[ext_resource type="Script" uid="uid://duydnkveh4mcc" path="res://scripts/ending_manager.gd" id="99_ending"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sugp2"]
 
@@ -425,3 +426,6 @@ label_settings = SubResource("LabelSettings_eb6dy")
 [node name="TutorialManager" type="CanvasLayer" parent="." unique_id=100000003]
 layer = 10
 script = ExtResource("9_tutorial")
+
+[node name="EndingManager" type="CanvasLayer" parent="." unique_id=974493991]
+script = ExtResource("99_ending")
